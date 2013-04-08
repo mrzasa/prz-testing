@@ -18,10 +18,12 @@ group :assets do
   # gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'
+  gem "therubyracer", ">= 0.11.3",  :platform => :ruby, :require => "v8"
 end
 
 gem 'jquery-rails'
 
+gem "libv8", ">= 3.11.8"
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
@@ -37,13 +39,6 @@ gem 'jquery-rails'
 # To use debugger
 # gem 'debugger'
 
-gem "rspec-rails", ">= 2.12.2", :group => [:development, :test]
-gem "capybara", ">= 2.0.3", :group => :test
-gem "database_cleaner", ">= 1.0.0.RC1", :group => :test
-gem "email_spec", ">= 1.4.0", :group => :test
-gem "guard-bundler", ">= 1.0.0", :group => :development
-gem "guard-rails", ">= 0.4.0", :group => :development
-gem "guard-rspec", ">= 2.5.2", :group => :development
 
 group :development do
   gem 'spork', '~> 1.0rc'
@@ -51,15 +46,32 @@ group :development do
   gem 'guard-spork'
   gem 'guard-livereload'
   gem 'rack-livereload'
+  gem "rb-inotify", ">= 0.9.0", :require => false
+  gem "rb-fsevent", ">= 0.9.3", :require => false
+  gem "rb-fchange", ">= 0.0.6", :require => false
+  gem "quiet_assets", ">= 1.0.2"
+  gem "hub", ">= 1.10.2", :require => nil
 end
 
-gem "rb-inotify", ">= 0.9.0", :group => :development, :require => false
-gem "rb-fsevent", ">= 0.9.3", :group => :development, :require => false
-gem "rb-fchange", ">= 0.0.6", :group => :development, :require => false
-gem "factory_girl_rails", ">= 4.2.0", :group => [:development, :test]
-gem "quiet_assets", ">= 1.0.2", :group => :development
-gem "libv8", ">= 3.11.8"
-gem "therubyracer", ">= 0.11.3", :group => :assets, :platform => :ruby, :require => "v8"
-gem "hub", ">= 1.10.2", :require => nil, :group => [:development]
+group :development, :test do
+  gem "factory_girl_rails", ">= 4.2.0"
+  gem "guard-bundler", ">= 1.0.0"
+  gem "guard-rails", ">= 0.4.0"
+  gem "guard-rspec", ">= 2.5.2"
+  gem "rspec-rails", ">= 2.12.2"
+  gem 'pry-debugger'
+  gem "pry-rails"
+  gem "pry-doc"
+  gem 'pry-stack_explorer'
+end
 
-gem 'shoulda-matchers'
+
+group :test do
+  gem 'shoulda'
+  gem "database_cleaner", ">= 1.0.0.RC1"
+  gem "capybara", ">= 2.0.3"
+  gem "email_spec", ">= 1.4.0"
+end
+
+
+
