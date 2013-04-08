@@ -177,6 +177,8 @@ GEM
       multi_json (~> 1.0)
       rubyzip
       websocket (~> 1.0.4)
+    shoulda-matchers (2.0.0)
+      activesupport (>= 3.0.0)
     slop (3.4.4)
     spork (1.0.0rc3)
     spork-rails (3.2.1)
@@ -229,6 +231,7 @@ DEPENDENCIES
   rb-inotify (>= 0.9.0)
   rspec-rails (>= 2.12.2)
   sass-rails (~> 3.2.3)
+  shoulda-matchers
   spork (~> 1.0rc)
   spork-rails
   sqlite3
