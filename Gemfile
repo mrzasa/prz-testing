@@ -44,6 +44,15 @@ gem "email_spec", ">= 1.4.0", :group => :test
 gem "guard-bundler", ">= 1.0.0", :group => :development
 gem "guard-rails", ">= 0.4.0", :group => :development
 gem "guard-rspec", ">= 2.5.2", :group => :development
+
+group :development do
+  gem 'spork', '~> 1.0rc'
+  gem 'spork-rails'
+  gem 'guard-spork'
+  gem 'guard-livereload'
+  gem 'rack-livereload'
+end
+
 gem "rb-inotify", ">= 0.9.0", :group => :development, :require => false
 gem "rb-fsevent", ">= 0.9.3", :group => :development, :require => false
 gem "rb-fchange", ">= 0.0.6", :group => :development, :require => false
